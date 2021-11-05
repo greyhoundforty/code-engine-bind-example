@@ -29,7 +29,7 @@ log.addHandler(ibmlogging)
 
 bind_data = os.environ.get('CE_SERVICES')
 
-creds = json.loads(bind_data)
+creds = json.loads(bind_data('cloud-object-storage'))
 
 print("Creds from json lods")
 print(creds)
