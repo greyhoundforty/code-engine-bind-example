@@ -10,7 +10,7 @@ from ibm_platform_services import IamIdentityV1, UsageReportsV4
 from ibm_cloud_sdk_core import ApiException
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
-apiKey = oc.environ.get('LOGDNA_INGESTION_KEY')
+apiKey = os.environ.get('LOGDNA_INGESTION_KEY')
 
 log = logging.getLogger('logdna')
 log.setLevel(logging.INFO)
