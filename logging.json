@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "disable_existing_loggers": false,
+  "formatters": {
+    "simple": {
+      "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    }
+  },
+  "handlers": {
+    "logdna": {
+      "class": "logging.handlers.LogDNAHandler",
+      "options": {
+          "app": "audit_log",
+          "url": "https://logs.us-south.logging.cloud.ibm.com/logs/ingest",
+          "index_meta": true
+      }
+    },
+    "console": {
+      "class": "logging.StreamHandler",
+      "level": "INFO",
+      "formatter": "simple",
+      "stream": "ext://sys.stdout"
+    }
+  },
+  "loggers": {
+    "my_module": {
+      "level": "ERROR",
+      "handlers": ["console", "logdna"],
+      "propagate": false
+    }
+  },
+  "root": {
+    "level": "INFO",
+    "handlers": ["console"]
+  }
+}
