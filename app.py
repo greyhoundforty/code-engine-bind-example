@@ -26,10 +26,13 @@ ibmlogging = LogDNAHandler(apiKey, options)
 
 log.addHandler(ibmlogging)
 
-bind_data = os.environ.get('CE_SERVICES')
+
+bind_data = json.loads(os.environ.get('CE_SERVICES'))
+
+print(bind_data['credentials'])
+
 print(bind_data)
 
-log.info(bind_data)
 
 
 # cos = ibm_boto3.resource("s3",
