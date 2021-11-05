@@ -27,10 +27,14 @@ ibmlogging = LogDNAHandler(apiKey, options)
 log.addHandler(ibmlogging)
 
 
-bind_data = json.loads(os.environ.get('CE_SERVICES'))
+bind_data = os.environ.get('CE_SERVICES')
 
-print(bind_data['credentials'])
+creds = json.loads(bind_data)
 
+print("Creds from json lods")
+print(creds)
+
+print("All info returned by service bind")
 print(bind_data)
 
 
